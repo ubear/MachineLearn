@@ -74,7 +74,20 @@ class Classifier(object):
         features = self.getfeatures(item)
         for f in features:
             # 增加特征单词及所在分类
-            self.incf(f, cat)
+            self.infc(f, cat)
         # 增加分类项
         self.incc(cat)
+
+    def fprob(self, f, cat):
+        if self.catcount(cat) == 0:
+            return 0
+        return self.fcount(f, cat) / self.catcount(cat)
+
+
+def sampletrain(cl):
+    cl.train("Nobody owns the water.", "good")
+    cl.train("the quick rabbit jumps fences", "good")
+    cl.train("buy pharmaceuticals now", 'bad')
+    cl.train("make quick money at the online casino", "bad")
+    cl.train("the quick brown fox jumps", "good")
 
