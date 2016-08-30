@@ -90,4 +90,3 @@ def sampletrain(cl):
     cl.train("buy pharmaceuticals now", 'bad')
     cl.train("make quick money at the online casino", "bad")
     cl.train("the quick brown fox jumps", "good")
-
